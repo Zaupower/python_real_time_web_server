@@ -1,0 +1,35 @@
+<table class="table table-dark table-striped">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Starting Time</th>
+      <th scope="col">Team A</th>
+      <th scope="col">Score</th>
+      <th scope="col">Team B</th>
+      <th scope="col">Minute</th>
+    </tr>
+  </thead>
+  <tbody id="table_body">
+  {%for match in matches %}
+    <tr>
+      <td id="match_{{ match.id }}">  {{match.id}} </td>
+      <td id="match_starting_time_{{ match.id }}" > {{match.starting_time}} </td>
+      <td id="match_team_a_{{ match.id }}" > {{match.team_a}} </td>
+      <td id="match_score_{{ match.id }}" > {{match.score}} </td>
+      <td id="match_team_b_{{ match.id }}" > {{match.team_b}} </td>
+      <td id="minute_{{ match.id }}" > {{match.minute}} </td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+<script>
+  setInterval( function() {
+      fetch('/data_json').then(
+        response => response.json()
+      ).then(
+          data => console.log(data)
+        )
+    },1
+  );
+</script>

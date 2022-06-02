@@ -1,0 +1,7 @@
+#Win 11 on terminal(localizado na pasta onde esta o main.py)
+
+ set FLASK_APP=main.py
+ set FLASK_DEBUG=1
+ $env:FLASK_APP = "main.py"
+#correr o server
+  flask run
